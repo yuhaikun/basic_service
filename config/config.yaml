@@ -1,0 +1,23 @@
+name: "web_app"
+host: "127.0.0.1"
+mode: "dev"
+port: 8081
+version: "v0.0.1"
+start_time: "2023-07-01"
+machine_id: 1
+auth:
+  jwt_expires: 24
+mysql:
+  host: "116.205.247.243"
+  port: 3306
+  db: "Mintiktok"
+  user: "root"
+  password: "8871527yhk"
+  db_name: "Mintiktok"
+  max_open_conns: 10
+  max_idle_conns: 5
+
+etcd:
+  endpoints:
+    - "http://116.205.247.243:2379"
+  key: "/myapp/config"
