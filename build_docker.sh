@@ -1,8 +1,8 @@
 #!/bin/bash
 
 commitid=$(git rev-parse --short HEAD)
-tag="wyy${commitid}"
-commitid="wyy:${commitid}"
+tag="basic${commitid}"
+commitid="basic:${commitid}"
 
 echo "${tag}"
 docker build -t "${commitid}" .

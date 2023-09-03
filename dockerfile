@@ -27,14 +27,14 @@ FROM alpine:latest
 WORKDIR /app
 
 # 安装redis客户端依赖
-RUN apk add --no-cache redis bind-tools
+#RUN apk add --no-cache redis bind-tools
 
 # 安装 tzdata 软件包
-RUN apk --no-cache add tzdata
+#RUN apk --no-cache add tzdata
 
 # 设置时区为CST
-ENV TZ=Asia/Shanghai
-
+#ENV TZ=Asia/Shanghai
+ENV PUBLIC_IP=116.205.247.243
 
 # 从主机复制配置文件到容器中
 COPY ./config/config.yaml /app/config/config.yaml
@@ -47,11 +47,11 @@ COPY --from=builder /app/res .
 #EXPOSE 8080
 
 # 在容器内安装 wget
-RUN apk add --no-cache wget
-
-# 获取容器的公网 IP 地址并写入环境变量
-RUN PUBLIC_IP=$(wget -qO- http://ipecho.net/plain) && \
-    echo "PUBLIC_IP=$PUBLIC_IP" >> /etc/environment
+#RUN apk add --no-cache wget
+#
+## 获取容器的公网 IP 地址并写入环境变量
+#RUN PUBLIC_IP=$(wget -qO- http://ipecho.net/plain) && \
+#    echo "PUBLIC_IP=$PUBLIC_IP" >> /etc/environment
 # 设置环境变量，指定redis地址
 #ENV REDIS_ADDR=host.docker.internal:6379
 
