@@ -12,7 +12,7 @@ import (
 	etcd "github.com/kitex-contrib/registry-etcd"
 	"log"
 	"net"
-	"os"
+	// "os"
 )
 
 func main() {
@@ -35,9 +35,9 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	ip := os.Getenv("PUBLIC_IP")
+	// ip := os.Getenv("PUBLIC_IP")
 
-	addr, _ := net.ResolveTCPAddr("tcp", fmt.Sprintf("%s:%s", ip, config.GlobalServerConfig.Port))
+	addr, _ := net.ResolveTCPAddr("tcp", fmt.Sprintf(":%s", config.GlobalServerConfig.Port))
 
 	server := basic.NewServer(new(FoundationImpl), server.WithRegistry(r), server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{
 		ServiceName: "Foundation",
